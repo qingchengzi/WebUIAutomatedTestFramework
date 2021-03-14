@@ -1,0 +1,16 @@
+2021-03-05 22:59:02--->直接点击登录按钮错误:unsupported operand type(s) for +: 'int' and 'str'
+2021-03-05 23:03:40--->直接点击登录按钮错误:unsupported operand type(s) for +: 'int' and 'str'
+2021-03-05 23:06:35--->直接点击登录按钮错误:unsupported operand type(s) for +: 'int' and 'str'
+2021-03-05 23:07:04--->直接点击登录按钮错误:unsupported operand type(s) for +: 'int' and 'str'
+2021-03-05 23:08:07--->直接点击登录按钮错误:unsupported operand type(s) for +: 'int' and 'str'
+2021-03-05 23:08:40--->直接点击登录按钮错误:unsupported operand type(s) for +: 'int' and 'str'
+2021-03-06 15:58:09--->登录后台错误:Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=84.0.4147.105)
+
+
+2021-03-06 17:32:02--->直接点击登录按钮错误:'NoneType' object has no attribute 'screenshot'
+2021-03-06 17:32:02--->登录后台错误:Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=84.0.4147.105)
+
