@@ -1,70 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-__author__ = 'tian'
-__data__ = '2018/4/17 10:29'
+# author： 青城子
+# datetime： 2021/3/28 15:12 
+# ide： PyCharm
 
-import os
+import yagmail
 
-import smtplib
-from email.mime.text import MIMEText  # 纯文本邮件模板
-from email.mime.multipart import MIMEMultipart  # 发送带附件
-
-
-def send_email(file_new):
-    # ------------发件相关的参数------------------
-    smtpserver = "192.168.10.192"  # 发件服务器
-    port = 465  # 端口
-    sender = "tianxiang@gz510.com"  # 账号
-    password = "123456"  # 密码
-    # receiver     = "352932341@qq.com" #单个接收人
-    receiver = ["352932341@qq.com"]  # 多个收件人
-
-    # -------------编辑邮件内容--------------------
-    # 读文件
-    with open(file_new, "rb") as fr:
-        mail_body = fr.read()
-    msg = MIMEMultipart()
-    msg['From'] = sender  # 发件人
-    msg['To'] = ";".join(receiver)  # 多个收件人
-    msg['Subject'] = "内测自动化运行结果"  # 主题
-
-    # 正文
-    body = MIMEText(mail_body, "html", "utf-8")
-    msg.attach(body)
-
-    # 附件
-    att = MIMEText(mail_body, _subtype='html', _charset="utf-8")
-    att["Content-Type"] = "application/octet-stream"
-    att["Content-Disposition"] = 'attachment; filename="test_report.html"'
-    msg.attach(att)
-
-    # 发送邮件
-    try:
-        smtp = smtplib.SMTP()
-        smtp.connect(smtpserver)  # 连接服务器
-        smtp.login(sender, password)  # 登录
-    except Exception as er:
-        smtp = smtplib.SMTP_SSL(smtpserver, port)
-        smtp.login(sender, password)  # 登录
-    smtp.sendmail(sender, receiver, msg.as_string())  # 发送
-    smtp.quit()  # 关闭
+from config import settings
 
 
-def send_report(testreport):
-    result_dir = testreport
-    lists = os.listdir(result_dir)  # 获取该目录下面的所有文件
-    # 找到最新生成的文件
-    lists.sort(key=lambda fn: os.path.getmtime(result_dir + "\\" + fn))
-    # 找到最新生成的文件
-    file_new = os.path.join(result_dir, lists[-1])
-    # 调用发邮件模块
-    send_email(file_new)
-
-
-def main_email():
-    test_report = './report'
-    send_report(test_report)
-
-
-if __name__ == '__main__':
-    main_email()
+def send_mail(report):
+    """
+    password是126邮箱中的授权码，不是邮箱的登录密码
+    :param report:
+    :return:
+    """
+    yag = yagmail.SMTP(user=settings.USER, password=settings.AUTH_CODE, host=settings.HOST)
+    subject = "主题，自动化测试报告"
+    contents = "正文，请查看附件"
+    yag.send("352932341@qq.com", subject, contents, report)
+    print("发送邮件成功")
