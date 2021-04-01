@@ -12,6 +12,7 @@ from HTMLTestRunnerdChineseScreenshot import HTMLTestRunner
 
 from util.send_email import send_mail
 from util.common_module import PublicTools
+from util import oracle_job
 
 
 def run_test_suite():
@@ -33,9 +34,12 @@ if __name__ == '__main__':
             description="XO自动化测试报告的描述",
             verbosity=2,
         ).run(run_test_suite())
-    # 发送邮件
+    # 发送邮件，需要配置自己的邮箱授权码
     # send_mail(file_name)
     # 删除10日前的测试报告和截图文件夹
     pub_obj = PublicTools()
     pub_obj.del_screen()
     pub_obj.del_report()
+    # 定时任务
+    oracle_job.start_task()
+    
