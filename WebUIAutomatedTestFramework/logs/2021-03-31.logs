@@ -1,0 +1,6 @@
+2021-03-31 22:37:40,711 港湾置业后台UI自动化 INFO 进入住宅出租页面报错:Message: element not interactable
+  (Session info: headless chrome=84.0.4147.105)
+
+2021-03-31 22:37:50,719 港湾置业后台UI自动化 INFO 新增房源错误:Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="j-search-form"]/div[10]/button[2]"}
+  (Session info: headless chrome=84.0.4147.105)
+
