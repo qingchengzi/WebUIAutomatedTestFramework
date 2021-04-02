@@ -1,7 +1,8 @@
 # WebUIAutomatedTestFramework
 
-Python3+unittest+HTMLTestRunner+apscheduler实现web端ui自动化测试
-介绍：
+
+Python3+unittest+HTMLTestRunner+apscheduler:
+
 采用分层设计思想,Page object设计模式,使用apscheduler来完成定时任务,具体测试中需要的参数通过数据驱动的方式进行存储和读取。
 将页面元素定位于元素操作进行分层，将谷歌浏览器实例化后driver对象常用属性和方法全部封装到base.py中，页面元素定位通过继承base.py中的BasePage来实现元素的操作。
 用例执行成功或者失败后自动截图功能，运行失败后生成对应的日志。
@@ -9,8 +10,10 @@ Python3+unittest+HTMLTestRunner+apscheduler实现web端ui自动化测试
 通过定时任务执行完用例后，已附件的形式将测试报告发送到指定的邮箱。
 
 
-框架目录简介
+框架目录简介:
+
 config --->settings.py 框架中常量的配置，例如：是否使用无头浏览器运行、邮箱配置、目录路径的配置等。
+
 database --->数据驱动，可将数据存放在text、json、excel、数据库中通过unittest来读取存在在这里的数据。
 debugcode --->调试代码用
 logs --->日志目录，用例执行失败时生成记录。
