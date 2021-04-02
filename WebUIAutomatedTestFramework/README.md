@@ -1,6 +1,5 @@
 
-Python3+unittest+HTMLTestRunner+apscheduler实现web端ui自动化测试
-介绍：
+Python3+unittest+HTMLTestRunner+apscheduler实现web端ui自动化测试;
 采用分层设计思想,Page object设计模式,使用apscheduler来完成定时任务,具体测试中需要的参数通过数据驱动的方式进行存储和读取。
 将页面元素定位于元素操作进行分层，将谷歌浏览器实例化后driver对象常用属性和方法全部封装到base.py中，页面元素定位通过继承base.py中的BasePage来实现元素的操作。
 用例执行成功或者失败后自动截图功能，运行失败后生成对应的日志。
